@@ -58,40 +58,31 @@
                 </select>
             </div>
 
-            <!-- Filter Jenis -->
-
-
-            <div class="grid grid-cols-2 gap-6">
-                <!-- Filter Jenis -->
+            <div class="grid grid-cols-1 gap-6">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Jenis Lembaga</label>
+                    <!-- header untuk kolom -->
+                    <div class="flex justify-between text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
+                        <span>Kategori</span>
+                        <span>Jumlah</span>
+                    </div>
+
                     <div class="space-y-2">
-                        @foreach (['PP' => 'red', 'RA' => 'blue', 'MI' => 'blue', 'MTs' => 'blue', 'MA' => 'blue', 'LPQ' => 'blue', 'MDT' => 'green'] as $jenis => $color)
+                        @foreach (['PP' => 'icons/pp.png', 'RA' => 'icons/ra.png', 'MI' => 'icons/mi.png', 'MTs' => 'icons/mts.png', 'MA' => 'icons/ma.png', 'LPQ' => 'icons/lpq.png', 'MDT' => 'icons/mdt.png',] as $jenis => $icon)
                             <div class="flex items-center">
                                 <input type="checkbox" class="filter-jenis" value="{{ $jenis }}" checked>
+                                <img src="{{ asset($icon) }}" alt="{{ $jenis }}" class="h-5 w-5 ml-2">
                                 <label class="ml-2 text-gray-800 dark:text-gray-200">{{ $jenis }}</label>
+
+                                <!-- jumlah total di kanan -->
+                                <span id="count-{{ $jenis }}"
+                                    class="ml-auto text-sm text-gray-500 dark:text-gray-400">
+                                    {{ $lembagaCounts[$jenis]->total ?? 0 }}
+                                </span>
                             </div>
                         @endforeach
                     </div>
-                </div>
 
-                <!-- Panel Keterangan -->
-                <div>
-                    <h2 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Keterangan Pin</h2>
-                    <ul class="space-y-2">
-                        @foreach (['PP' => 'red', 'RA' => 'blue', 'MI' => 'blue', 'MTs' => 'blue', 'MA' => 'blue', 'LPQ' => 'blue', 'MDT' => 'green'] as $jenis => $color)
-                            <li class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <span
-                                        class="inline-block h-3.5 w-3.5 rounded-full bg-{{ $color }}-600"></span>
-                                    <span class="text-gray-800 dark:text-gray-200">{{ $jenis }}</span>
-                                </div>
-                                <span id="count-{{ $jenis }}" class="text-sm text-gray-500 dark:text-gray-400">
-                                    {{ $lembagaCounts[$jenis]->total ?? 0 }}
-                                </span>
-                            </li>
-                        @endforeach
-                    </ul>
                 </div>
             </div>
         </aside>
@@ -104,44 +95,32 @@
             attribution: '&copy; OpenStreetMap'
         }).addTo(map);
 
-        // lempar data dari Laravel ke JS
         var lembaga = @json($lembaga);
-        // lembaga.forEach(function(l) {
-        //     if (l.latitude && l.longitude) {
-        //         L.marker([l.latitude, l.longitude], {
-        //                 icon: getIcon(l.jenis)
-        //             })
-        //             .bindPopup("<b>" + l.nama_lembaga + "</b><br>Jenis: " + l.jenis)
-        //             .addTo(map);
-        //     }
-        // });
 
         function getIcon(jenis) {
             let iconUrl;
             switch (jenis) {
                 case "RA":
-                    iconUrl = "https://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+                    iconUrl = "icons/ra.png";
                     break;
                 case "MI":
-                    iconUrl = "https://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+                    iconUrl = "icons/mi.png";
                     break;
                 case "MTs":
-                    iconUrl = "https://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+                    iconUrl = "icons/mts.png";
                     break;
                 case "MA":
-                    iconUrl = "https://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+                    iconUrl = "icons/ma.png";
                     break;
                 case "LPQ":
-                    iconUrl = "https://maps.google.com/mapfiles/ms/icons/green-dot.png";
+                    iconUrl = "icons/lpq.png";
                     break;
                 case "MDT":
-                    iconUrl = "https://maps.google.com/mapfiles/ms/icons/green-dot.png";
+                    iconUrl = "icons/mdt.png";
                     break;
                 case "PP":
-                    iconUrl = "https://maps.google.com/mapfiles/ms/icons/red-dot.png";
+                    iconUrl = 'icons/pp.png';
                     break;
-                default:
-                    iconUrl = "https://maps.google.com/mapfiles/ms/icons/grey-dot.png";
             }
             return L.icon({
                 iconUrl: iconUrl,

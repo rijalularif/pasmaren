@@ -200,7 +200,8 @@
                             focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5
                             dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
                             dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                        placeholder="Tulis alamat lengkap..." required>{{ old('alamat') }}</textarea>
+                        placeholder="Tulis alamat lengkap..." required>{{ old('alamat') }}
+                    </textarea>
                     @error('alamat')
                         <div class="invalid-feedback text-red-600 text-sm mt-1">{{ $message }}</div>
                     @enderror
@@ -217,6 +218,7 @@
                         dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
                         dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         required>
+
                         <option value="" disabled {{ old('kecamatan') ? '' : 'selected' }}>Pilih Kecamatan
                         </option>
                         <option value="Lubuk Sikaping" @selected(old('kecamatan') == 'Lubuk Sikaping')>Lubuk Sikaping</option>
@@ -233,6 +235,7 @@
                         <option value="Simpang Alahan Mati" @selected(old('kecamatan') == 'Simpang Alahan Mati')>Simpang Alahan Mati</option>
                         <option value="Tigo Nagari" @selected(old('kecamatan') == 'Tigo Nagari')>Tigo Nagari</option>
                     </select>
+
                     @error('kecamatan')
                         <div class="invalid-feedback text-red-600 text-sm mt-1">{{ $message }}</div>
                     @enderror
@@ -294,6 +297,7 @@
                 </div>
             </div>
 
+            {{-- Button --}}
             <button type="submit"
                 class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white
                 bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900
@@ -353,5 +357,6 @@
             // Coba isi saat load jika sudah ada value lama
             tryFillLatLngFromUrl(urlEl?.value);
         </script>
+
     </div>
 </x-dash-layout>

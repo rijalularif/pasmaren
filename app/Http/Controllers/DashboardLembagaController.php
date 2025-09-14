@@ -13,6 +13,7 @@ class DashboardLembagaController extends Controller
     {
         $q = trim((string) $request->query('q', ''));
         $title = 'Lembaga';
+        
         $items = Lembaga::query()
             ->when($q !== '', function ($query) use ($q) {
                 $like = '%' . str_replace(' ', '%', $q) . '%';
@@ -27,9 +28,11 @@ class DashboardLembagaController extends Controller
             ->orderBy('nama_lembaga')
             ->paginate(15)
             ->withQueryString();
+
         if ($request->wantsJson()) {
             return response()->json($items);
         }
+
         return view(
             'dashboard.lembagas.index',
             compact('title', 'items', 'q')

@@ -60,8 +60,8 @@
                     <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Jumlah seluruh lembaga</p>
                 </div>
             </div>
-            
+
         </div>
-        
+
     </section>
 </x-dash-layout>
