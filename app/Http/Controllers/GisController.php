@@ -9,7 +9,7 @@ class GisController extends Controller
 {
     public function index()
     {
-        $title = 'Persebaran Lembaga Pendidikan';
+        $title = 'Persebaran Madrasah & Pesantren Kab. Pasaman';
         $lembaga = Lembaga::select('nama_lembaga', 'jenis', 'kecamatan', 'latitude', 'longitude')->get();
 
         $lembagaCounts = Lembaga::select('jenis', DB::raw('count(*) as total'))

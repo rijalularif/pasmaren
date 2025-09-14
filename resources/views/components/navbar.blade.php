@@ -3,16 +3,16 @@
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
                 <div class="shrink-0">
-                    <img class="size-8"
-                        src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Your Company" />
+                    <img class="size-15"
+                        src="icons/pasmaren.png"
+                        alt="Pasmaren" />
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300
                             hover:bg-gray-700 hover:text-white" -->
                         <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                        <x-nav-link href="/marens" :active="request()->is('marens')">Pesantren & Madrasah</x-nav-link>
+                        {{-- <x-nav-link href="/marens" :active="request()->is('marens')">Pesantren & Madrasah</x-nav-link> --}}
                         <x-nav-link href="/madrasah" :active="request()->is('madrasah')">Madrasah</x-nav-link>
                         <x-nav-link href="/pontren" :active="request()->is('pontren')">Pesantren</x-nav-link>
                     </div>
@@ -90,7 +90,7 @@
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300
                     hover:bg-gray-700 hover:text-white" -->
             <x-nav-link-mobile href="/" :active="request()->is('/')">Home</x-nav-link-mobile>
-            <x-nav-link-mobile href="/marens" :active="request()->is('marens')">Madrasah & Pesantren</x-nav-link-mobile>
+            {{-- <x-nav-link-mobile href="/marens" :active="request()->is('marens')">Madrasah & Pesantren</x-nav-link-mobile> --}}
             <x-nav-link-mobile href="/madrasah" :active="request()->is('madrasah')">Madrasah</x-nav-link-mobile>
             <x-nav-link-mobile href="/pontren" :active="request()->is('pontren')">Pesantren</x-nav-link-mobile>
         </div>

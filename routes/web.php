@@ -29,23 +29,12 @@ Route::get('/marens', [MarenController::class, 'index']);
 
 Route::get('/marens/{maren:slug}', [MarenController::class, 'show']);
 
-// Route::get('/madrasah', [MadrasahController::class, 'index']);
-// Route::get('/madrasah/{slug}', [MadrasahController::class, 'show']);
-
-// Route::get('/pontren', [PontrenController::class, 'index']);
-// Route::get('/pontren/{slug}', [PontrenController::class, 'show']);
-
-// Route::prefix('lembaga')->group(function () {
-//     Route::get('madrasah/{slug}', [MadrasahController::class, 'show']);
-//     Route::get('pontren/{slug}', [PontrenController::class, 'show']);
-// });
-
 Route::get('/', [GisController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+// Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/register', [RegisterController::class, 'store']);
+// Route::post('/register', [RegisterController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');

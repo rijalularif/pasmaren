@@ -1,7 +1,6 @@
 <x-dash-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
 
-    <section class="bg-white dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 sm:ml-64">
             {{-- Header --}}
             <div class="max-w-screen-md mb-8 lg:mb-12">
@@ -62,6 +61,4 @@
             </div>
 
         </div>
-
-    </section>
 </x-dash-layout>

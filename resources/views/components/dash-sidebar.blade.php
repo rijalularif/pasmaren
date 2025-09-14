@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li class="nav-item {{ Request::is('dashboard/marens*') ? 'active' : '' }}">
-                <a href="/dashboard/marens"
+                <a href="/"
                     class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -38,11 +38,11 @@
                             d="m7.14284 11 4.99996-6 5 6m-9.99996 0h-3v8H20.1428v-8h-3m-9.99996 0H3.14285l3-4h4.33735l-3.33736 4Zm9.99996 0h4l-3-4h-4.3374l3.3374 4Zm-3 2c0 1.1046-.8954 2-2 2-1.1045 0-2-.8954-2-2s.8955-2 2-2c1.1046 0 2 .8954 2 2Z" />
                     </svg>
 
-                    <span class="ml-3">My Posts</span>
+                    <span class="ml-3">Home Page</span>
                 </a>
             </li>
 
-            <li class="nav-item {{ Request::is('dashboard/pontrens*') ? 'active' : '' }}">
+            {{-- <li class="nav-item {{ Request::is('dashboard/pontrens*') ? 'active' : '' }}">
                 <a href="/dashboard/pontrens"
                     class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -54,11 +54,11 @@
 
                     <span class="ml-3">Pondok Pesantren</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
 
         {{-- @can('admin') --}}
-        <ul class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
+        {{-- <ul class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
             <li class="nav-item {{ Request::is('dashboard/kecamatans*') ? 'active' : '' }}">
                 <a href="/dashboard/kecamatans"
                     class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
@@ -73,7 +73,7 @@
                     <span class="ml-3">Data Kecamatan</span>
                 </a>
             </li>
-        </ul>
+        </ul> --}}
 
         <ul class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
             <li class="nav-item {{ Request::is('dashboard/lembagas*') ? 'active' : '' }}">
