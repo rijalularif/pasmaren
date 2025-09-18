@@ -3,9 +3,7 @@
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
                 <div class="shrink-0">
-                    <img class="size-15"
-                        src="icons/pasmaren.png"
-                        alt="Pasmaren" />
+                    <img class="size-15" src="/icons/pasmaren.png" alt="Pasmaren" />
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
@@ -30,8 +28,9 @@
                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true"> --}}
                                 <span class="absolute -inset-1.5"></span>
                                 <span class="sr-only">Open user menu</span>
+                                
                                 <img class="size-8 rounded-full outline -outline-offset-1 outline-white/10"
-                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    src="/icons/avatar-svgrepo-com.png"
                                     alt="Male avatar">
                             </button>
                             <el-menu anchor="bottom end" popover

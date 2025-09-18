@@ -95,95 +95,100 @@
     </div>
 
 
-<div
-    class="hidden absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex
-           bg-white dark:bg-gray-800 z-20 border-r border-gray-200 dark:border-gray-700">
+    <div
+        class="hidden absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex
+        bg-white dark:bg-gray-800 z-20 border-r border-gray-200 dark:border-gray-700">
 
-    {{-- Logout --}}
-    <form id="logout-form" action="/logout" method="POST" class="inline-flex">
-        @csrf
-        <button type="button" id="btn-logout" data-tooltip-target="tooltip-logout"
-            class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer
-                   hover:text-gray-900 hover:bg-gray-100
-                   dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600
-                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 dark:focus:ring-gray-600">
-            {{-- icon logout --}}
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M16 17v1a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v1"/>
-                <path d="M7 12h10m0 0l-3-3m3 3l-3 3"/>
-            </svg>
-            <span class="sr-only">Logout</span>
-        </button>
-    </form>
-    <div id="tooltip-logout" role="tooltip"
-         class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
-        Logout
-        <div class="tooltip-arrow" data-popper-arrow></div>
+        {{-- Logout --}}
+        <form id="logout-form" action="/logout" method="POST" class="inline-flex">
+            @csrf
+            <button type="button" id="btn-logout" data-tooltip-target="tooltip-logout"
+                class="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer
+                hover:text-gray-900 hover:bg-gray-100
+                dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600
+                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 dark:focus:ring-gray-600">
+                {{-- icon logout --}}
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 8v8a2 2 0 002 2h6a2 2 0 002-2v-1" />
+                </svg>
+
+                <span class="sr-only">Logout</span>
+            </button>
+        </form>
+        <div id="tooltip-logout" role="tooltip"
+            class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
+            Logout
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
     </div>
-</div>
 
-{{-- Modal Konfirmasi Logout --}}
-<div id="logout-modal"
-     class="fixed inset-0 z-[999] hidden items-center justify-center bg-black/40 p-4">
-    <div class="w-full max-w-md rounded-xl bg-white dark:bg-gray-800 shadow-lg">
-        <div class="p-6">
-            <div class="flex items-start gap-3">
-                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30">
-                    <svg class="h-5 w-5 text-red-600 dark:text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.72-1.36 3.485 0l6.518 11.6A2 2 0 0116.518 18H3.482a2 2 0 01-1.742-3.301l6.517-11.6zM11 14a1 1 0 10-2 0 1 1 0 002 0zm-1-2a1 1 0 01-1-1V7a1 1 0 112 0v4a1 1 0 01-1 1z" clip-rule="evenodd"/>
-                    </svg>
+    {{-- Modal Konfirmasi Logout --}}
+    <div id="logout-modal" class="fixed inset-0 z-[999] hidden items-center justify-center bg-black/40 p-4">
+        <div class="w-full max-w-md rounded-xl bg-white dark:bg-gray-800 shadow-lg">
+            <div class="p-6">
+                <div class="flex items-start gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30">
+                        <svg class="h-5 w-5 text-red-600 dark:text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M8.257 3.099c.765-1.36 2.72-1.36 3.485 0l6.518 11.6A2 2 0 0116.518 18H3.482a2 2 0 01-1.742-3.301l6.517-11.6zM11 14a1 1 0 10-2 0 1 1 0 002 0zm-1-2a1 1 0 01-1-1V7a1 1 0 112 0v4a1 1 0 01-1 1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Konfirmasi Logout</h3>
+                        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                            Anda yakin ingin keluar dari website?
+                        </p>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Konfirmasi Logout</h3>
-                    <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
-                        Anda yakin ingin keluar dari website?
-                    </p>
-                </div>
-            </div>
-            <div class="mt-6 flex justify-end gap-2">
-                <button type="button" id="logout-cancel"
+                <div class="mt-6 flex justify-end gap-2">
+                    <button type="button" id="logout-cancel"
                         class="rounded-lg border border-gray-300 px-4 py-2 text-sm
-                               hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700">
-                    Batal
-                </button>
-                <button type="button" id="logout-confirm"
+                        hover:bg-gray-50 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700">
+                        Batal
+                    </button>
+                    <button type="button" id="logout-confirm"
                         class="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white
-                               hover:bg-red-700 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-800">
-                    Logout
-                </button>
+                        hover:bg-red-700 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-800">
+                        Logout
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    const btnLogout   = document.getElementById('btn-logout');
-    const modal       = document.getElementById('logout-modal');
-    const btnCancel   = document.getElementById('logout-cancel');
-    const btnConfirm  = document.getElementById('logout-confirm');
-    const formLogout  = document.getElementById('logout-form');
+    <script>
+        const btnLogout = document.getElementById('btn-logout');
+        const modal = document.getElementById('logout-modal');
+        const btnCancel = document.getElementById('logout-cancel');
+        const btnConfirm = document.getElementById('logout-confirm');
+        const formLogout = document.getElementById('logout-form');
 
-    function openModal() {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    }
-    function closeModal() {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-    }
+        function openModal() {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
 
-    btnLogout?.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal();
-    });
-    btnCancel?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal(); // klik backdrop = tutup
-    });
-    btnConfirm?.addEventListener('click', () => formLogout?.submit());
-</script>
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
 
-{{-- Fallback super-ringkas (kalau mau tanpa modal):
+        btnLogout?.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal();
+        });
+        btnCancel?.addEventListener('click', closeModal);
+        modal?.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal(); // klik backdrop = tutup
+        });
+        btnConfirm?.addEventListener('click', () => formLogout?.submit());
+    </script>
+
+    {{-- Fallback super-ringkas (kalau mau tanpa modal):
 <form ... onsubmit="return confirm('Yakin logout?')"> --}}
 
 

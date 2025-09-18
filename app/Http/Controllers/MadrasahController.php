@@ -33,7 +33,7 @@ class MadrasahController extends Controller
     public function show(Lembaga $lembaga)
     {
         return view('lembaga', [
-            'title' => 'Detail Lembaga',
+            'title' => 'Detail Madrasah',
             'lembaga' => $lembaga,
         ]);
     }

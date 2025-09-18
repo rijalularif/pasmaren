@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="space-y-2">
-                        @foreach (['PP' => 'icons/pp.png', 'RA' => 'icons/ra.png', 'MI' => 'icons/mi.png', 'MTs' => 'icons/mts.png', 'MA' => 'icons/ma.png', 'LPQ' => 'icons/lpq.png', 'MDT' => 'icons/mdt.png',] as $jenis => $icon)
+                        @foreach (['PP' => 'icons/pp.png', 'RA' => 'icons/ra.png', 'MI' => 'icons/mi.png', 'MTs' => 'icons/mts.png', 'MA' => 'icons/ma.png', 'LPQ' => 'icons/lpq.png', 'MDT' => 'icons/mdt.png'] as $jenis => $icon)
                             <div class="flex items-center">
                                 <input type="checkbox" class="filter-jenis" value="{{ $jenis }}" checked>
                                 <img src="{{ asset($icon) }}" alt="{{ $jenis }}" class="h-5 w-5 ml-2">
@@ -89,10 +89,12 @@
     </div>
 
     <script>
+
         var map = L.map('map').setView([0.3918718, 100.0278408], 11);
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 20,
-            attribution: '&copy; OpenStreetMap'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
         var lembaga = @json($lembaga);
@@ -130,7 +132,7 @@
             });
         }
 
-        fetch("storage/pasaman.geojson")
+        fetch("geojson/pasaman.geojson")
             .then(res => res.json())
             .then(data => {
                 // Menyimpan batas seluruh geojson untuk digunakan nanti
@@ -236,6 +238,7 @@
         document.querySelectorAll(".filter-jenis").forEach(cb => {
             cb.addEventListener("change", renderMarkers);
         });
+
     </script>
 
 </x-layout>

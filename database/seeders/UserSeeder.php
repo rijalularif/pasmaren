@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             'username' => 'rijalularif',
             'email' => 'rijalul.arif@gmail.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('password'),
+            'password' => Hash::make('Rijhppl17!'),
             'remember_token' => Str::random(10)
         ]);
     }
